@@ -14,13 +14,11 @@ run:
 # Migração de banco de dados
 te:
 	python manage.py migrate
-	python manage.py migrate posts
-	python manage.py migrate accounts
+	python manage.py migrate www
 	
 tions:
 	python manage.py makemigrations
-	python manage.py makemigrations posts
-	python manage.py makemigrations accounts
+	python manage.py makemigrations www
 
 off_tions:
 	# find . -type d -name 'migrations' -prune -exec rm -rf {} \;
