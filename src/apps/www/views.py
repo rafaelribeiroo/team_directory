@@ -1,5 +1,10 @@
 from django.shortcuts import render
+from .models import Person
 
 
 def index(request):
-    return render(request, 'index.html')
+    person = Person.objects.all()
+    context = {
+        'peoples': person,
+    }
+    return render(request, 'index.html', context)
