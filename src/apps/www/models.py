@@ -6,3 +6,11 @@ class Person(models.Model):
     email = models.CharField('Email Address', max_length=100)
     title = models.CharField('Titulo', max_length=100)
     image = models.CharField('Imagem', max_length=200)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['-name', ]
+        verbose_name = 'Person'
+        verbose_name_plural = 'Peoples'
