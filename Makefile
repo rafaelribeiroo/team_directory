@@ -49,3 +49,6 @@ dump:
 
 load:
 	python manage.py loaddata db_dump.json  # database=production
+
+comments_off:
+	sed '/^[[:blank:]]*#/d;s/#.*//' **/*.py 
