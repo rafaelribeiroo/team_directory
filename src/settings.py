@@ -84,7 +84,7 @@ DATABASES = {
         'USER': config_decouple('DB_USER'),  # Seu usuário
         'PASSWORD': config_decouple('DB_PASSWORD'),  # Sua senha
         'HOST': config_decouple('DB_HOST'),  #
-        'PORT': '',  # 8000 is default
+        'PORT': '',  # 8000
     }
 }
 
