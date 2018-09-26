@@ -134,3 +134,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 DATABASES['default'] = dj_database_url.config()
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+HOST_SCHEME = "https://"
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
