@@ -1,7 +1,7 @@
 /* main.css */
 
 body {
-	background: #DDD;
+	background: #ddd;
 	font-size: 16px;
 	padding: 0;
 	margin: 0;
@@ -20,7 +20,7 @@ section {
 	background: #FFF;
 	text-align: center;
 	display: inline-block;
-	margin: 0 10px;
+	margin: 0 10px 10px 10px;
 }
 
 img {
@@ -29,7 +29,7 @@ img {
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 1.7em;
 	font-weight: bold;
 	padding: 0;
 	margin: 0;
