@@ -8,3 +8,7 @@ def index(request):
         'peoples': person,
     }
     return render(request, 'index.html', context)
+
+
+def detail(request, slug):
+    pass

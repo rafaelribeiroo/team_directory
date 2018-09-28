@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from decouple import config as config_decouple
-import dj_database_url
+import dj_database_url as db
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -130,7 +130,10 @@ STATIC_URL = '/static/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-DATABASES['default'] = dj_database_url.config()
+# Manter dessa forma, caso contrario em modo dev o Django n aceitara
+# OBS, voce deve deixar como DATABASES['default'] = db.config() a
+# principio para gerar no heroku
+DATABASES['default'] = db.config(default=config_decouple('DB_HEROKU'))
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
