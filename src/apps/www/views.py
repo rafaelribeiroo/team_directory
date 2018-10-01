@@ -10,5 +10,6 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def detail(request, slug):
-    pass
+def detail(request, slug, email):
+    person = Person.objects.get(slug=slug, email=email)
+    return render(request, 'detail.html', {'person': person})

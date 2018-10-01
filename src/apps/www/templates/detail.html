@@ -9,17 +9,12 @@
 <body>
 	<main>
 		<h1>Directory</h1>
-		<p>Abaixo, os nossos registros</p>
-		{% for person in peoples %}
 		<section>
-			<a href="{% url 'www:detail' person.slug person.email %}">
-				<img src="{{ person.image }}">
-			</a>
+			<img src="{{ person.image }}">
 			<p>{{ person.name }}</p>
 			<p class="person-title">{{ person.title }}</p>
 			<p class="person-email">{{ person.email }}</p>
 		</section>
-		{% endfor %}
 
 	</main>
 	

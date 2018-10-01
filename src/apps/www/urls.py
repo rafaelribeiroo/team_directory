@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import path
 from .views import (
     index,
     detail,
@@ -8,5 +8,5 @@ from .views import (
 app_name = 'www'
 urlpatterns = [
     path('', index, name='home'),
-    re_path(r'^members/([a-z0-9-]+)/', detail, name='detail'),
+    path('members/<str:slug>/<str:email>/', detail, name='detail'),
 ]
