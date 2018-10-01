@@ -11,8 +11,8 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def detail(request, year, slug):
-    person = Person.objects.get(slug=slug, birthday__year=year)
+def detail(request, year, month, day, slug):
+    person = Person.objects.get(slug=slug, birthday__year=year, birthday__month=month, birthday__day=day)
     return render(request, 'detail.html', {'person': person})
 
 

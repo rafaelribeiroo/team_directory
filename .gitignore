@@ -102,3 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# init, deprecated on PY 3.3
+__init__.py/

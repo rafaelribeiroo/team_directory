@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import path
 from .views import (
     index,
     detail,
@@ -9,7 +9,6 @@ from .views import (
 app_name = 'www'
 urlpatterns = [
     path('', index, name='home'),
-    re_path(r'^(?P<year>[0-9]{4})/(?P<slug>[\w-]+)$', detail, name='detail'),
-    # path('members/<str:slug>/<str:birthday>/', detail, name='detail'),
+    path('members/<int:year>/<int:month>/<int:day>/<str:slug>', detail, name='detail'),
     path('members/<str:slug>/', edit, name='edit'),
 ]
