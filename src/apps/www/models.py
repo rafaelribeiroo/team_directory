@@ -15,6 +15,9 @@ class Person(models.Model):
     github = models.CharField(max_length=40, blank=True)
     birthday = models.DateField(default=timezone.now)
 
+    def get_year(self):
+        return self.birthday.year
+
     def save(self, *args, **kwargs):
         if not self.pk:
             slug = slugify(self.name)
