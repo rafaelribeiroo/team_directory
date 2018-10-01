@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class Person(models.Model):
@@ -7,6 +8,11 @@ class Person(models.Model):
     title = models.CharField('Titulo', max_length=100)
     slug = models.SlugField('Slug', max_length=80)
     image = models.CharField('Imagem', max_length=200)
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            slug = slugify(self.name)
+        super(Person, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name

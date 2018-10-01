@@ -27,7 +27,7 @@ SECRET_KEY = config_decouple('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config_decouple('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['directory-codeschool.herokuapp.com','.directory-codeschool.com']
+ALLOWED_HOSTS = ['directory-codeschool.herokuapp.com','.directory-codeschool.com', '127.0.0.1']
 
 
 # Application definition
