@@ -13,4 +13,6 @@
 		<p>{{ person.github }}</p>
 		<p>{{ person.birthday }}</p>
 	</section>
+
+	<p>Clique para <a href="{% url 'www:edit' person.slug %}">editar</a></p>
 {% endblock %}

@@ -10,5 +10,5 @@ app_name = 'www'
 urlpatterns = [
     path('', index, name='home'),
     path('members/<int:year>/<int:month>/<int:day>/<str:slug>', detail, name='detail'),
-    path('members/<str:slug>/', edit, name='edit'),
+    path('members/<str:slug>/edit/', edit, name='edit'),
 ]
