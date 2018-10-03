@@ -8,17 +8,18 @@ clean:
 
 # Rodando em todos os pc's conectados na mesma rede
 run:
-	# 127.0.0.1, pq se for localhost o facebook n funciona em dev
 	python manage.py runserver 127.0.0.1:8000
 
 # Migração de banco de dados
 te:
 	python manage.py migrate
-	python manage.py migrate www
+	python manage.py migrate posts
+	python manage.py migrate accounts
 	
 tions:
 	python manage.py makemigrations
-	python manage.py makemigrations www
+	python manage.py makemigrations posts
+	python manage.py makemigrations accounts
 
 off_tions:
 	# find . -type d -name 'migrations' -prune -exec rm -rf {} \;
@@ -47,6 +48,7 @@ dump:
 
 load:
 	python manage.py loaddata db_dump.json  # database=production
+
 
 comments_off:
 	sed '/^[[:blank:]]*#/d;s/#.*//' **/*.py 
