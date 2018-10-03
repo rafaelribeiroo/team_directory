@@ -1,16 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Directory</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-</head>
-<body>
-	<main>
-		<h1>Directory</h1>
-		<p>Abaixo, os nossos registros</p>
-		{% for person in peoples %}
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Directory</h1>
+	<p>Abaixo, os nossos registros</p>
+	{% for person in peoples %}
 		<section>
 			<a href="{% url 'www:detail' year=person.birthday.year month=person.birthday.month day=person.birthday.day slug=person.slug %}">
 				<img src="{{ person.image }}">
@@ -19,9 +12,5 @@
 			<p class="person-title">{{ person.title }}</p>
 			<p class="person-email">{{ person.email }}</p>
 		</section>
-		{% endfor %}
-
-	</main>
-	
-</body>
-</html>
+	{% endfor %}
+{% endblock %}
