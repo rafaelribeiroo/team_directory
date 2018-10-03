@@ -25,5 +25,6 @@ from src.apps.www import urls as www_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include((www_urls), namespace='www')),
+    path('', include(('social.apps.django_app.urls'), namespace='social')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
