@@ -1,15 +1,19 @@
 from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponse
 from .models import Person
 from .forms import PersonForm
 from django.forms.models import model_to_dict
 
 
 def index(request):
-    person = Person.objects.all()
-    context = {
-        'peoples': person,
-    }
-    return render(request, 'index.html', context)
+    if request.user.is_authenticated:
+        person = Person.objects.all()
+        context = {
+            'peoples': person,
+        }
+        return render(request, 'index.html', context)
+    else:
+        redirect('/login/google-oauth2')
 
 
 def detail(request, year, month, day, slug):
@@ -24,8 +28,15 @@ def edit(request, slug):
         form = PersonForm(data=request.POST, instance=person)
         if form.is_valid():
             form.save(commit=True)
-        return redirect(reverse('detail', args=[slug, ]))
+        return redirect(reverse('www:detail', args=[slug, ]))
     else:
         person_dict = model_to_dict(person)
         form = PersonForm(person_dict)
         return render(request, 'edit.html', {'form': form})
+
+
+def verify_email(backend, user, response, *args, **kwargs):
+    if backend.name == 'google-oauth2':
+        existing_person = Person.objects.filter(email=kwargs.get('www:detail').get('email'))
+        if not existing_person:
+            return HttpResponse('You dont have access!')
